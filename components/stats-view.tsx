@@ -287,14 +287,12 @@ export function StatsView() {
                           color: "hsl(var(--foreground))",
                         }}
                         labelStyle={{ color: "hsl(var(--foreground))" }}
-                        formatter={(value?: number) => {
-  if (typeof value !== "number") {
-    return ["—", "Day Rating"]
-  }
-
-  return [DAY_RATING_LABELS[value - 1], "Day Rating"]
-}}
-
+                        formatter={(value: any) => {
+                          if (typeof value !== "number") {
+                            return ["—", "Day Rating"]
+                          }
+                          return [DAY_RATING_LABELS[value - 1], "Day Rating"]
+                        }}
                       />
                       <Line
                         type="monotone"
@@ -350,14 +348,12 @@ export function StatsView() {
                           color: "hsl(var(--foreground))",
                         }}
                         labelStyle={{ color: "hsl(var(--foreground))" }}
-                        formatter={(value?: number) => {
-  if (typeof value !== "number") {
-    return ["—", "Avg Energy"]
-  }
-
-  return [ENERGY_LABELS[Math.round(value) - 1], "Avg Energy"]
-}}
-
+                        formatter={(value: any) => {
+                          if (typeof value !== "number") {
+                            return ["—", "Avg Energy"]
+                          }
+                          return [ENERGY_LABELS[Math.round(value) - 1], "Avg Energy"]
+                        }}
                       />
                       <Bar dataKey="avgEnergy" fill="hsl(var(--chart-4))" radius={[4, 4, 0, 0]} />
                     </BarChart>
